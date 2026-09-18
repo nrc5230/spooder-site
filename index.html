@@ -3,15 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>spooder — coming soon</title>
-<meta name="description" content="An app for finding friends and events nearby — coming soon to iPhone.">
-<link rel="canonical" href="https://spooder.app/">
-<meta property="og:title" content="spooder">
-<meta property="og:description" content="Coming soon!">
-<meta property="og:url" content="https://spooder.app/">
-<meta property="og:image" content="https://spooder.app/icon-512.png">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -20,136 +11,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --parchment: #F9F5F0;
-    --walnut: #252126;
-    --stone: #665F65;
-    --accent: #955087;
-    --glow: rgba(149, 80, 135, 0.10);
-    --web-opacity: 0.05;
-    --icon-shadow: rgba(37, 33, 38, 0.14);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --parchment: #14110F;
-      --walnut: #F4EBDF;
-      --stone: #A89E94;
-      --accent: #C476B4;
-      --glow: rgba(196, 118, 180, 0.10);
-      --web-opacity: 0.07;
-      --icon-shadow: rgba(0, 0, 0, 0.55);
-    }
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html, body { height: 100%; }
-
-  body {
-    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: var(--parchment);
-    color: var(--walnut);
-    display: flex;
-    flex-direction: column;
-    min-height: 100svh;
-    overflow: hidden;
-  }
-
-  .glow, .web {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .glow {
-    background: radial-gradient(circle at 50% 44%, var(--glow) 0%, transparent 58%);
-  }
-
-  .web {
-    width: 100%;
-    height: 100%;
-    color: var(--stone);
-    opacity: var(--web-opacity);
-  }
-
-  main {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    position: relative;
-  }
-
-  .icon {
-    width: 160px;
-    height: 160px;
-    border-radius: 22.5%;
-    border: 1px solid rgba(102, 95, 101, 0.18);
-    box-shadow: 0 12px 32px var(--icon-shadow);
-    display: block;
-  }
-
-  h1 {
-    margin-top: 2rem;
-    font-size: 2.75rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-    line-height: 1;
-  }
-
-  .tagline {
-    margin-top: 0.875rem;
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: var(--stone);
-  }
-
-  footer {
-    position: relative;
-    text-align: center;
-    padding: 1.5rem;
-    font-size: 0.8125rem;
-    color: var(--stone);
-    opacity: 0.7;
-  }
-
-  @media (max-width: 420px) {
-    .icon { width: 128px; height: 128px; }
-    h1 { font-size: 2.25rem; }
-    .tagline { font-size: 1rem; }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .rise {
-      opacity: 0;
-      transform: translateY(10px);
-      animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-    .rise:nth-child(2) { animation-delay: 0.15s; }
-    .rise:nth-child(3) { animation-delay: 0.3s; }
-    @keyframes rise {
-      to { opacity: 1; transform: none; }
-    }
-    .web {
-      opacity: 0;
-      animation: spin-web 1.6s ease-out 0.2s forwards;
-    }
-    @keyframes spin-web {
-      to { opacity: var(--web-opacity); }
-    }
-    footer {
-      opacity: 0;
-      animation: settle 0.7s ease-out 0.6s forwards;
-    }
-    @keyframes settle {
-      to { opacity: 0.7; }
-    }
-  }
-</style>
+<link rel="stylesheet" href="/styles.css">
+<title>spooder</title>
+<meta name="description" content="Spooder is an app for finding friends and events nearby, coming soon to iPhone. Made by Spooder LLC.">
+<link rel="canonical" href="https://spooder.app/">
+<meta property="og:title" content="spooder">
+<meta property="og:description" content="An app for finding friends and events nearby. Coming soon to iPhone.">
+<meta property="og:url" content="https://spooder.app/">
+<meta property="og:image" content="https://spooder.app/icon-512.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
 </head>
 <body>
   <div class="glow" aria-hidden="true"></div>
@@ -175,12 +46,25 @@
       <use href="#hex" transform="scale(1160)"/>
     </g>
   </svg>
-  <main>
+  <header class="site-header">
+    <a class="brand" href="/"><img src="/favicon-32.png" width="36" height="36" alt="">spooder</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </header>
+  <main class="hero">
     <img class="icon rise" src="/icon-512.png" width="160" height="160"
          alt="Spooder app icon — a hand-drawn spider">
     <h1 class="rise">spooder</h1>
-    <p class="tagline rise">Coming soon!</p>
+    <p class="tagline rise">An app for finding friends and events nearby.</p>
+    <p class="subline rise">Coming soon to iPhone.</p>
+    <p class="maker rise">Made by <a href="/about/">Spooder LLC</a> in Pennsylvania.</p>
   </main>
-  <footer>© 2026 Spooder LLC</footer>
+  <footer class="site-footer">
+    <p>© 2026 Spooder LLC<span class="sep">·</span><a href="mailto:nick@spooder.app">nick@spooder.app</a></p>
+    <p><a href="/about/">About</a><span class="sep">·</span><a href="/contact/">Contact</a><span class="sep">·</span><a href="/privacy/">Privacy</a></p>
+  </footer>
 </body>
 </html>
